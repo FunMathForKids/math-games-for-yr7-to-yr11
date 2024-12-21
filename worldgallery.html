@@ -89,6 +89,15 @@
             color: #fff;
         }
 
+        /* Description for each image */
+        .description {
+            font-family: 'Press Start 2P', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         /* Download Button */
         .download-button {
             background: linear-gradient(135deg, #ff7e5f, #feb47b);
@@ -152,15 +161,16 @@
 
     <h1>V O I D A G O N</h1>
     <h2><span class="x">X</span> <span class="y">Y</span> <span class="z">Z</span></h2>
-    <p class="subheading">Your one-stop destination for 40+ unblocked and undetected games.</p>
+    <p class="subheading">Maps for Mathscraft (Eaglercraft).</p>
 
     <!-- Gallery Section -->
     <div class="gallery">
         <span class="arrow" id="prev-arrow">&#8592;</span>
         <div>
-            <img id="gallery-image" src="image1.jpg" alt="Gallery Image">
+            <img id="gallery-image" src="assets/images/image1.jpg" alt="Gallery Image">
             <div class="title" id="image-title">Title 1</div>
-            <a id="download-link" href="https://example.com/download1" target="_blank">
+            <div class="description" id="image-description">Description for this game.</div> <!-- New description element -->
+            <a id="download-link" href="assets/downloads/game1.zip" target="_blank">
                 <button class="download-button">Download</button>
             </a>
         </div>
@@ -169,10 +179,12 @@
 
     <script>
         const images = [
-            {src: 'image1.jpg', title: 'Title 1', downloadLink: 'https://example.com/download1'},
-            {src: 'image2.jpg', title: 'Title 2', downloadLink: 'https://example.com/download2'},
-            {src: 'image3.jpg', title: 'Title 3', downloadLink: 'https://example.com/download3'},
-            {src: 'image4.jpg', title: 'Title 4', downloadLink: 'https://example.com/download4'},
+            {src: 'assets/images/skyblock.png', title: 'Sky Block', description: 'Survive on a floating island and complete challenges.', downloadLink: 'assets/downloads/skyblock.zip'},
+            {src: 'assets/images/bedwars.png', title: 'Bedwars', description: 'Fight to destroy other players\' beds and be the last one standing.', downloadLink: 'assets/downloads/bedwars.zip'},
+            {src: 'assets/images/dropper.jpg', title: 'Dropper', description: 'A fast-paced map game where players navigate through a series of increasingly difficult, vertical obstacle courses to land safely in a small pool of water at the bottom.', downloadLink: 'assets/downloads/dropper.zip'},
+            {src: 'assets/images/parkour.jpg', title: 'Parkour', description: 'A parkour course named "Pressure Parkour". It goes vertical.', downloadLink: 'assets/downloads/parkour.zip'},
+			{src: 'assets/images/SG.webp', title: 'Hunger Games', description: 'A competitive multiplayer survival game where players fight to be the last one standing in an arena, scavenging for resources and battling opponents until only one survives.', downloadLink: 'assets/downloads/SG.zip'},
+			{src: 'assets/images/BB.webp', title: 'Build Battle', description: 'A competitive multiplayer buildimg game where players try to make the best build.', downloadLink: 'assets/downloads/BB.zip'},
         ];
         
         let currentIndex = 0;
@@ -181,11 +193,13 @@
         const nextArrow = document.getElementById('next-arrow');
         const galleryImage = document.getElementById('gallery-image');
         const imageTitle = document.getElementById('image-title');
+        const imageDescription = document.getElementById('image-description'); // Added reference to description
         const downloadLink = document.getElementById('download-link');
 
         function updateGallery() {
             galleryImage.src = images[currentIndex].src;
             imageTitle.textContent = images[currentIndex].title;
+            imageDescription.textContent = images[currentIndex].description; // Update description
             downloadLink.href = images[currentIndex].downloadLink;
         }
 
